@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,11 +101,15 @@
 <script>
   // Example function to fetch data from the API
 function fetchData() {
-    // Show loading screen
     document.getElementById('loading-screen').style.display = 'flex';
 
-    fetch('https://webrtcsocket.onrender.com/api/data') // Replace with your API endpoint
-        .then(response => response.json())
+    fetch('https://webrtcsocket.onrender.com/api/data') // Ensure this URL is correct
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             console.log(data); // Handle your data here
         })
@@ -114,7 +117,6 @@ function fetchData() {
             console.error('Error fetching data:', error);
         })
         .finally(() => {
-            // Hide loading screen
             document.getElementById('loading-screen').style.display = 'none';
         });
 }
