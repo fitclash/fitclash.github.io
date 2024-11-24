@@ -201,43 +201,46 @@
     
     <meta itemprop="description" content="A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios. Latest release v4.26.2">
 <section>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div id="user-list"></div> <!-- Container to display users -->
+
 <script>
+ function fetchUsers() {
+            // Show loading screen
+            document.getElementById('loading-screen').style.display = 'flex';
 
-// Function to fetch and display users from external JSON
-function fetchUsers() {
-    // Show loading screen (if you have one)
-    document.getElementById('loading-screen').style.display = 'flex';
+            fetch('https://example.com/data.json') // Replace with your actual URL
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Iterate over the users array
+                    const userList = document.getElementById('user-list');
+                    data.users.forEach(user => {
+                        const userElement = document.createElement('div');
+                        userElement.textContent = `ID: ${user.id}, Name: ${user.name}`;
+                        userList.appendChild(userElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                })
+                .finally(() => {
+                    // Hide loading screen
+                    document.getElementById('loading-screen').style.display = 'none';
+                });
+        }
 
-    fetch('https://example.com/data.json') // Replace with your actual URL
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Iterate over the users array
-            data.users.forEach(user => {
-                console.log(`ID: ${user.id}, Name: ${user.name}`);
-                // You can also append this data to the DOM if needed
-                // Example: 
-                // const userElement = document.createElement('div');
-                // userElement.textContent = `ID: ${user.id}, Name: ${user.name}`;
-                // document.body.appendChild(userElement);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        })
-        .finally(() => {
-            // Hide loading screen
-            document.getElementById('loading-screen').style.display = 'none';
+        // Call fetchUsers when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', (event) => {
+            fetchUsers();
         });
-}
-
-// Call the function to fetch users
-fetchUsers();
-
 
 </script>
 
