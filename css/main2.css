@@ -1,0 +1,31 @@
+.how-to-play img.logo-shape {height: auto;max-width: 50%;min-width: 150px;width: 12vw;}section :not(.bg-steps) {z-index: 1;}
+.flex-1 {
+    flex: 1 1;
+}
+ection :not(.bg-steps) {
+    z-index: 1;
+}
+.white, a.white {
+    color: #ededed;
+    color: var(--color-white-text);
+}
+p {
+    margin-bottom: .6rem;
+}
+@media screen and (max-width: 1200px) {
+    p {
+        font-size: 15px !important;
+    }
+}
+p, p.large {
+    font-size: 18px;
+}
+li, p {
+    font-family: TerminaLight;
+}
+h1, h2, p {
+    font-weight: 100;
+}
+h1, h2, p {
+    margin: 0;
+}
