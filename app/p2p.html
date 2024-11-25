@@ -178,6 +178,7 @@
 
                   // Display the connected wallet address
                   walletAddressDiv.textContent = `Connected wallet: ${response.publicKey.toString()}`;
+                  document.getElementById('login').style.display = 'none';
               } catch (err) {
                   console.error('Connection failed:', err);
               }
