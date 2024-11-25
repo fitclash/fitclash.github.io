@@ -201,6 +201,7 @@
     
     <meta itemprop="description" content="A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios. Latest release v4.26.2">
 <section>
+    <div>Public Games</div>
     <div id="loading-screen">
         <div class="loader"></div>
     </div>
@@ -212,7 +213,7 @@
             // Show loading screen
             document.getElementById('loading-screen').style.display = 'flex';
 
-            fetch('https://example.com/data.json') // Replace with your actual URL
+            fetch('/game.json') // Replace with your actual URL
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
@@ -222,9 +223,9 @@
                 .then(data => {
                     // Iterate over the users array
                     const userList = document.getElementById('user-list');
-                    data.users.forEach(user => {
+                    data.games.forEach(game => {
                         const userElement = document.createElement('div');
-                        userElement.textContent = `ID: ${user.id}, Name: ${user.name}`;
+                        userElement.textContent = `ID: ${game.title}, Name: ${game.name}`;
                         userList.appendChild(userElement);
                     });
                 })

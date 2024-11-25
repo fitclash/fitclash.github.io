@@ -1,2 +1,6 @@
-[{"title":"","badge":"dude.jpg","game":"adadad","entrytype":"","entryamount":"","playeramount":"","gamestart":"","gamedueration":""},
-{"title":"","badge":"dude.jpg","game":"adadad","":""}]
+{
+    "games":[
+{"title":"Red dude","badge":"dude.jpg","game":"adadad","entrytype":"","entryamount":"","playeramount":"","gamestart":"","gamedueration":""},
+{"title":"","badge":"dude.jpg","game":"adadad","":""}
+]
+}
