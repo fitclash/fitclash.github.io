@@ -241,6 +241,12 @@ function fetchData() {
 // Call fetchData when needed, e.g., on button click
 document.getElementById('connect-button').addEventListener('click', fetchData);
 </script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+    function handleCredentialResponse(response) {
+        decodeJwtResponse(response.credential);
+    }
+</script>
 
     <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
     <script type="text/javascript" src="/js/client1.js"></script>
